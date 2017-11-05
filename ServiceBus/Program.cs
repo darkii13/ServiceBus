@@ -16,20 +16,20 @@ namespace ServiceBus
             var queueName = "queuedark";
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            //int i = 0;
+            int i = 0;
 
-            //while (i < 1000)
-            //{
-            //    var message = new BrokeredMessage("This is a test message! Darek mm");
+            while (i < 1)
+            {
+                var message = new BrokeredMessage("This is a test message! Darek mm");
 
-            //    Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+                Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
-            //    client.Send(message);
-            //    i++;
-            //}
+                client.Send(message);
+                i++;
+            }
 
-            //Console.WriteLine("Message successfully sent! Press ENTER to exit program");
-            //Console.ReadLine();
+            Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+            Console.ReadLine();
 
             client.OnMessage(message2 =>
             {
